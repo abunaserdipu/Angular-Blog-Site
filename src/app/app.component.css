@@ -1,0 +1,9 @@
+.navbar {
+  justify-content: space-between;
+}
+
+.navbar a {
+  text-decoration: none;
+  padding: 1rem;
+  color: #ffff;
+}

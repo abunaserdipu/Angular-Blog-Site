@@ -9,6 +9,7 @@ import { Blog } from '../interfaces/blog';
 })
 export class CustomizeComponent implements OnInit {
   public blogs: Blog[] = [];
+  columnsToDisplay = ["title","slug","author", "actions"]
 
   constructor(private blogData: BlogDataService) {}
 

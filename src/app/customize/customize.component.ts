@@ -3,16 +3,17 @@ import { Component, OnInit } from '@angular/core';
 import { Blog } from '../interfaces/blog';
 
 @Component({
-  selector: 'app-blog-cards',
-  templateUrl: './blog-cards.component.html',
-  styleUrls: ['./blog-cards.component.css'],
+  selector: 'app-blog-input',
+  templateUrl: './customize.component.html',
+  styleUrls: ['./customize.component.css'],
 })
-export class BlogCardsComponent implements OnInit {
+export class CustomizeComponent implements OnInit {
   public blogs: Blog[] = [];
-  constructor(private _blogService: BlogDataService) {}
+
+  constructor(private blogData: BlogDataService) {}
 
   ngOnInit(): void {
-    this._blogService.getBlogs().subscribe(
+    this.blogData.getBlogs().subscribe(
       (response) => {
         if (response.success) {
           this.blogs = response.data;
@@ -23,5 +24,11 @@ export class BlogCardsComponent implements OnInit {
         console.log(err);
       }
     );
+  }
+  getBlogsFormData(data: Blog[]) {
+    console.warn(data);
+    this.blogData.postBlogs(data).subscribe((response) => {
+      console.warn(response);
+    });
   }
 }

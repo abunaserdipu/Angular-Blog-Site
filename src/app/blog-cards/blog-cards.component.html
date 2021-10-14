@@ -1,7 +1,7 @@
-<ul *ngFor="let blog of blogs">
-  <mat-card class="card">
+<div class="container">
+  <mat-card *ngFor="let blog of blogs">
     <mat-card-title>{{ blog.title }}</mat-card-title>
     <mat-card-subtitle>{{ blog.author }}</mat-card-subtitle>
     <mat-card-content>{{ blog.shortDescription }}</mat-card-content>
   </mat-card>
-</ul>
+</div>

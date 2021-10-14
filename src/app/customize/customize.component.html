@@ -1,0 +1,55 @@
+<h1>Add New Blog</h1>
+<form #blogsForm="ngForm" (ngSubmit)="getBlogsFormData(blogsForm.value)">
+  <mat-form-field appearance="outline">
+    <mat-label>Title</mat-label>
+    <input type="text" matInput ngModel name="title" required>
+  </mat-form-field>
+  <br>
+
+<mat-form-field appearance="outline">
+    <mat-label>Slug</mat-label>
+    <input type="text" matInput ngModel name="slug" required>
+  </mat-form-field>
+  <br>
+
+<mat-form-field appearance="outline">
+    <mat-label>Author</mat-label>
+    <input type="text" matInput ngModel name="author" required>
+  </mat-form-field>
+  <br>
+
+<mat-form-field appearance="outline">
+    <mat-label>ShortDescription</mat-label>
+    <textarea matInput ngModel name="shortDescription" required></textarea>
+  </mat-form-field>
+
+  <br>
+  <button mat-raised-button color="primary">Add blog</button>
+</form>
+
+<!-- Blog data show on table -->
+
+<table mat-table [blogs]="blogs">
+<ng-container>
+  <th mat-header-cell *matHeaderCellDef>No.</th>
+  <th mat-cell *matCellDef></th>
+</ng-container>
+
+<ng-container >
+  <th mat-header-cell *matHeaderCellDef="title">Title </th>
+  <td mat-cell *matCellDef="let blog">{{blog.title}}</td>
+</ng-container>
+
+<ng-container >
+  <th mat-header-cell *matHeaderCellDef>Slug </th>
+  <td mat-cell *matCellDef> sdlfsd </td>
+</ng-container>
+
+<ng-container >
+  <th mat-header-cell *matHeaderCellDef>Author </th>
+  <td mat-cell *matCellDef> Author </td>
+</ng-container>
+
+<tr mat-header-row *matHeaderRowDef></tr>
+  <tr mat-row *matRowDef></tr>
+</table>

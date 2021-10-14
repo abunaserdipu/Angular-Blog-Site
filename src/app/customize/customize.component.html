@@ -1,55 +1,66 @@
 <h1>Add New Blog</h1>
-<form #blogsForm="ngForm" (ngSubmit)="getBlogsFormData(blogsForm.value)">
-  <mat-form-field appearance="outline">
-    <mat-label>Title</mat-label>
-    <input type="text" matInput ngModel name="title" required>
-  </mat-form-field>
-  <br>
+<ng-container>
+  <form #blogsForm="ngForm" (ngSubmit)="getBlogsFormData(blogsForm.value)">
+    <mat-form-field appearance="outline">
+      <mat-label>Title</mat-label>
+      <input type="text" matInput ngModel name="title" required />
+    </mat-form-field>
+    <br />
 
-<mat-form-field appearance="outline">
-    <mat-label>Slug</mat-label>
-    <input type="text" matInput ngModel name="slug" required>
-  </mat-form-field>
-  <br>
+    <mat-form-field appearance="outline">
+      <mat-label>Slug</mat-label>
+      <input type="text" matInput ngModel name="slug" required />
+    </mat-form-field>
+    <br />
 
-<mat-form-field appearance="outline">
-    <mat-label>Author</mat-label>
-    <input type="text" matInput ngModel name="author" required>
-  </mat-form-field>
-  <br>
+    <mat-form-field appearance="outline">
+      <mat-label>Author</mat-label>
+      <input type="text" matInput ngModel name="author" required />
+    </mat-form-field>
+    <br />
 
-<mat-form-field appearance="outline">
-    <mat-label>ShortDescription</mat-label>
-    <textarea matInput ngModel name="shortDescription" required></textarea>
-  </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>ShortDescription</mat-label>
+      <textarea matInput ngModel name="shortDescription" required></textarea>
+    </mat-form-field>
 
-  <br>
-  <button mat-raised-button color="primary">Add blog</button>
-</form>
+    <br />
+    <button mat-raised-button color="primary">Add blog</button>
+  </form>
+</ng-container>
 
 <!-- Blog data show on table -->
 
-<table mat-table [dataSource]="blogs">
-<ng-container>
-  <th mat-header-cell *matHeaderCellDef>No.</th>
-  <th mat-cell *matCellDef></th>
-</ng-container>
+<section>
+  <ng-container>
+    <table mat-table [dataSource]="blogs" class="mat-elevation-z8">
+      <ng-container>
+        <th mat-header-cell *matHeaderCellDef>No.</th>
+        <th mat-cell *matCellDef></th>
+      </ng-container>
 
-<ng-container >
-  <th mat-header-cell *matHeaderCellDef="title">Title </th>
-  <td mat-cell *matCellDef="let blog">{{blog.title}}</td>
-</ng-container>
+      <ng-container matColumnDef="title">
+        <th mat-header-cell *matHeaderCellDef>Title</th>
+        <td mat-cell *matCellDef="let element">{{ element.title }}</td>
+      </ng-container>
 
-<ng-container >
-  <th mat-header-cell *matHeaderCellDef>Slug </th>
-  <td mat-cell *matCellDef> sdlfsd </td>
-</ng-container>
+      <ng-container matColumnDef="slug">
+        <th mat-header-cell *matHeaderCellDef>Slug</th>
+        <td mat-cell *matCellDef="let element">{{ element.slug }}</td>
+      </ng-container>
 
-<ng-container >
-  <th mat-header-cell *matHeaderCellDef>Author </th>
-  <td mat-cell *matCellDef> Author </td>
-</ng-container>
+      <ng-container matColumnDef="author">
+        <th mat-header-cell *matHeaderCellDef>Author</th>
+        <td mat-cell *matCellDef="let element">{{ element.author }}</td>
+      </ng-container>
 
-<tr mat-header-row *matHeaderRowDef></tr>
-  <tr mat-row *matRowDef></tr>
-</table>
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell  *matHeaderCellDef>Actions</th>
+        <td mat-cell *matCellDef="let row"><button mat-icon-button color="warn" aria-label="Example icon button with a heart icon"><mat-icon>delete_outline</mat-icon></button></td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+      <tr mat-row *matRowDef="let row; columns: columnsToDisplay"></tr>
+    </table>
+  </ng-container>
+</section>

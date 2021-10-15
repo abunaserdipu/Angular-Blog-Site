@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Blog } from '../interfaces/blog';
 
-const API_BLOG = environment.apiBaseUrl + '/api/v1/blog/'
+const API_BLOG = environment.apiBaseUrl + '/api/v1/blog/';
 
 @Injectable({
   providedIn: 'root',
@@ -17,7 +17,13 @@ export class BlogDataService {
     );
   }
 
-  postBlogs(data:Blog[]){
-    return this.http.post(API_BLOG + 'add-blog',data)
+  postBlogs(data: Blog[]) {
+    return this.http.post(API_BLOG + 'add-blog', data);
   }
+
+  // deleteBlog(data:any) {
+  //   return this.http.delete<{ success: boolean; data: Blog[]; count: number }>(
+  //     API_BLOG + '/delete-blog-by-id/' + data._id
+  //   );
+  // }
 }

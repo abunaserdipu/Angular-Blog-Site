@@ -7,8 +7,9 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatTableModule} from '@angular/material/table';
 import {MatIconModule} from '@angular/material/icon';
+import {MatExpansionModule} from '@angular/material/expansion'
 
-const material = [MatButtonModule, MatToolbarModule, MatCardModule, MatGridListModule, MatFormFieldModule, MatInputModule, MatTableModule, MatIconModule];
+const material = [MatButtonModule, MatToolbarModule, MatCardModule, MatGridListModule, MatFormFieldModule, MatInputModule, MatTableModule, MatIconModule, MatExpansionModule];
 
 @NgModule({
   imports: [material],

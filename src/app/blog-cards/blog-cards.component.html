@@ -1,10 +1,14 @@
 <ng-container>
   <div class="container">
     <mat-card *ngFor="let blog of blogs" style="margin: 15px 0;">
-      <mat-card-title>{{ blog.title }}</mat-card-title>
-      <mat-card-subtitle>{{ blog.author }}</mat-card-subtitle>
+      <mat-card-title>
+        <h2>{{ blog.title }}</h2>
+      </mat-card-title>
+      <mat-card-subtitle>
+        <h3>{{ blog.author }}</h3>
+      </mat-card-subtitle>
       <mat-card-content>
-        {{ blog.shortDescription | slice: 0:250}}
+        {{ blog.shortDescription | slice: 0:250}}...
       </mat-card-content>
     </mat-card>
   </div>

@@ -9,7 +9,7 @@ import { Blog } from '../interfaces/blog';
 })
 export class CustomizeComponent implements OnInit {
   public blogs: Blog[] = [];
-  columnsToDisplay: string[] = [ 'title', 'slug', 'author', 'actions'];
+  columnsToDisplay: string[] = ['title', 'slug', 'author', 'actions'];
 
   constructor(private blogData: BlogDataService) {}
 
@@ -35,9 +35,7 @@ export class CustomizeComponent implements OnInit {
     });
   }
 
-  // deleteBlog(data: any) {
-  //   this.blogData.deleteBlog(data).subscribe(() => {
-  //     this.getBlogs();
-  //   });
-  // }
+  deleteBlog(data: any) {
+    this.blogData.deleteBlog(data.id).subscribe
+  }
 }

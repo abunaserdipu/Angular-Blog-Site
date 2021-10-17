@@ -1,6 +1,5 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Blog } from '../interfaces/blog';
 
@@ -21,9 +20,9 @@ export class BlogDataService {
     return this.http.post(API_BLOG + 'add-blog', data);
   }
 
-  // deleteBlog(data:any) {
-  //   return this.http.delete<{ success: boolean; data: Blog[]; count: number }>(
-  //     API_BLOG + '/delete-blog-by-id/' + data._id
-  //   );
-  // }
+  deleteBlog(id: string) {
+    return this.http.delete<{ success: boolean; data: Blog[]; count: number }>(
+      API_BLOG + '/delete-blog-by-id/' + id
+    );
+  }
 }
